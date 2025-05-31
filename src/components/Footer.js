@@ -66,7 +66,7 @@ function Footer({ styles }) {
                 src="../logoinstagram-1.svg"
               />
             </a>
-            <a className={styles.a3} href="https://github.com/aashishpanthi">
+            <a className={styles.a3} href="https://github.com/hecker8055">
               <img
                 className={styles.logoGithub1Icon}
                 alt=""

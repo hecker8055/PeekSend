@@ -39,7 +39,7 @@ const SignIn = ({ nhost }) => {
   return (
     <>
       <Helmet>
-        <title>Sign In - Mailsbe</title>
+        <title>Sign In - PeekSend</title>
       </Helmet>
       <div className={styles.signInDiv}>
         {needsEmailVerification ? (
@@ -53,7 +53,7 @@ const SignIn = ({ nhost }) => {
               <div className={styles.welcomeBack}>Welcome back 👋</div>
               <div className={styles.fIllInTheRequiredDetailsT}>
                 FIll in the required details to start using your account, and
-                enjoy mailsbe.
+                enjoy PeekSend.
               </div>
               <div className={styles.buttonDiv} onClick={handleGoogleSignIn}>
                 <div className={styles.buttonPrimaryWithIconDiv}>

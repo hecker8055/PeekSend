@@ -54,7 +54,7 @@ const Profile = () => {
   return (
     <>
       <Helmet>
-        <title>Profile - Mailsbe</title>
+        <title>Profile - PeekSend</title>
       </Helmet>
 
       <div className={styles.container}>

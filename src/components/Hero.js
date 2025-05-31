@@ -11,7 +11,7 @@ function Hero({ styles }) {
     <div className={styles.heroDiv}>
       <nav className={styles.headerNav} id="nvbar">
         <a className={styles.logoA}>
-          <b className={styles.mailbes}>mailsbe</b>
+          <b className={styles.PeekSend}>PeekSend</b>
         </a>
         <div className={styles.menuDiv}>
           <Link to="/sign-in" className={styles.loginButton}>
