@@ -1,0 +1,24 @@
+{
+  "name": "peeksend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hecker8055/PeekSend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hecker8055/PeekSend/issues"
+  },
+  "homepage": "https://github.com/hecker8055/PeekSend#readme",
+  "description": "",
+  "dependencies": {
+    "@nhost/nhost-js": "^3.2.8",
+    "express": "^5.1.0"
+  }
+}
