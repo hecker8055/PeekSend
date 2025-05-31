@@ -1,0 +1,500 @@
+.hELPMENUB,
+.weAreHereToHelpYouSuceed {
+  display: inline-block;
+}
+.weAreHereToHelpYouSuceed {
+  line-height: 22px;
+  width: 396px;
+  height: 98px;
+}
+.hELPMENUB {
+  font-size: var(--bold-16px1-size);
+  line-height: 24px;
+  color: var(--gray-900);
+}
+.a,
+.logoTwitter2Icon {
+  width: 16px;
+  height: 12.87px;
+}
+.a {
+  text-decoration: none;
+  top: 3.86px;
+}
+.a1,
+.logoFbSimple2Icon {
+  width: 9.05px;
+  height: 17.35px;
+}
+.a1 {
+  text-decoration: none;
+  top: 1.29px;
+  left: 50.34px;
+}
+.a2,
+.logoInstagram1Icon {
+  width: 19.4px;
+  height: 19.31px;
+}
+.a2 {
+  text-decoration: none;
+  left: 93.73px;
+}
+.a3,
+.logoGithub1Icon {
+  width: 18.56px;
+  height: 18.02px;
+}
+.a3 {
+  text-decoration: none;
+  left: 147.46px;
+}
+
+.socialDiv {
+  display: flex;
+  width: 100px;
+  justify-content: space-between;
+}
+
+.widgetsDiv {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 25px;
+}
+
+.widget0Div {
+  max-width: 396px;
+  color: var(--gray-600);
+  padding: 10px;
+}
+.career {
+  display: inline-block;
+}
+.career,
+.features,
+.worksA {
+  text-decoration: none;
+  line-height: 40px;
+  color: inherit;
+}
+.worksA {
+  display: inline-block;
+}
+
+.about,
+.features,
+.hELPMENUB1 {
+  display: inline-block;
+}
+.about {
+  text-decoration: none;
+  top: 45px;
+  line-height: 40px;
+  color: inherit;
+}
+.hELPMENUB1 {
+  top: 0;
+  font-size: var(--bold-16px1-size);
+  line-height: 24px;
+}
+.widget1Div {
+  width: 77px;
+  height: 205px;
+}
+.customerSupport,
+.serviceDetails {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+.serviceDetails {
+  color: var(--gray-900);
+}
+.privacyPolicy {
+  margin: 0;
+}
+.aboutFeaturesWorks {
+  line-height: 40px;
+  white-space: pre-wrap;
+  display: inline-block;
+}
+.widget2Div {
+  width: 128px;
+  height: 205px;
+  color: var(--color-gray-1500);
+}
+.pricingPlans {
+  line-height: 42px;
+  display: inline-block;
+  width: 405px;
+}
+.buttonName {
+  position: relative;
+  font-size: var(--regular-13px1-size);
+  line-height: 22px;
+  display: inline-block;
+  font-family: var(--regular-13px1);
+  color: var(--shades-white);
+  text-align: right;
+}
+.iconOutlinearrowRight {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.iconDiv {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.buttonPrimaryWithIcon,
+.frameDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.frameDiv {
+  flex-direction: row;
+  gap: var(--gap-sm);
+}
+.buttonPrimaryWithIcon {
+  cursor: pointer;
+  text-decoration: none;
+  border: 1.5px solid var(--gray-900);
+  padding: var(--padding-md);
+  background-color: var(--gray-900);
+  border-radius: 60px;
+  box-sizing: border-box;
+  height: 50px;
+  flex-direction: column;
+}
+.contentDiv,
+.lineDiv {
+  width: 100%;
+}
+
+.contentDiv {
+  min-height: 84px;
+  font-size: var(--bold-32px-size);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+.lineDiv {
+  top: 220.5px;
+  left: 151.5px;
+  border-top: 1px solid var(--gray-200);
+  box-sizing: border-box;
+  height: 1px;
+}
+.footer {
+  max-width: 1200px;
+  min-height: 200px;
+  margin: 0 auto;
+  text-align: left;
+  font-size: var(--regular-13px1-size);
+  color: var(--gray-900);
+  font-family: var(--regular-13px1);
+  margin-top: 100px;
+}
+.sendB,
+.sendEmailDirectlyFromTheD {
+  line-height: 28px;
+  display: inline-block;
+  width: 315px;
+}
+.sendEmailDirectlyFromTheD {
+  font-size: var(--bold-16px1-size);
+  line-height: 26px;
+  color: var(--gray-600);
+  width: 283px;
+}
+
+.sendIcon {
+  width: 63px;
+  height: 63px;
+  object-fit: cover;
+}
+.div {
+  position: relative;
+  width: 315px;
+  height: 195px;
+}
+.knowIfTheUserReadTheEmai,
+.statusB {
+  line-height: 28px;
+  display: inline-block;
+  width: 315px;
+}
+.knowIfTheUserReadTheEmai {
+  font-size: var(--bold-16px1-size);
+  line-height: 26px;
+  color: var(--gray-600);
+  width: 240px;
+}
+.vectorIcon {
+  height: 24.8%;
+  width: 14.6%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.div1 {
+  position: relative;
+  width: 315px;
+  height: 193px;
+}
+.findOutExactlyWhenTheRece,
+.historyB {
+  line-height: 28px;
+  display: inline-block;
+  width: 315px;
+}
+.findOutExactlyWhenTheRece {
+  font-size: var(--bold-16px1-size);
+  line-height: 26px;
+  color: var(--gray-600);
+  width: 290px;
+}
+.vectorIcon1 {
+  height: 19.47%;
+  width: 13.02%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.div2 {
+  position: relative;
+  width: 315px;
+  height: 187px;
+}
+
+.listDiv {
+  display: flex;
+  max-width: 996px;
+  flex-wrap: wrap;
+}
+
+.exploreTheUnexploredPotenti {
+  font-size: var(--pj-regular-18px-size);
+  color: var(--gray-600);
+  margin-bottom: 30px;
+}
+
+.contentDiv1 {
+  max-width: 616px;
+  margin: 0 auto;
+  margin-top: 100px;
+  font-size: var(--pj-bold-42px-size);
+}
+.featureDiv {
+  max-width: 996px;
+  position: relative;
+  margin: 25px auto;
+  margin-top: 50px;
+}
+.bGIframe,
+.videoNav {
+  width: 880px;
+  height: 526px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+.bGIframe {
+  top: 0;
+  left: 0;
+  border-radius: var(--br-sm);
+  background-color: var(--shades-white);
+  box-shadow: 0 24px 164px -20px rgba(35, 40, 105, 0.15);
+}
+
+.knowIfYourEmailHasBeenRe {
+  line-height: 62px;
+  font-weight: 800;
+  font-family: var(--regular-13px1);
+  display: inline-block;
+  width: 627px;
+}
+.createYourAccountForFree,
+.smartEmailStatusFinderMa {
+  font-size: var(--pj-regular-18px-size);
+  line-height: 28px;
+  color: var(--gray-600);
+  display: inline-block;
+  width: 533px;
+}
+.createYourAccountForFree {
+  font-size: var(--bold-16px1-size);
+  line-height: 26px;
+  color: var(--gray-5001);
+}
+.buttonName1 {
+  position: relative;
+  font-size: var(--pj-regular-18px-size);
+  line-height: 24px;
+  display: inline-block;
+  font-family: var(--regular-13px1);
+  color: var(--shades-white);
+  text-align: right;
+}
+.buttonPrimaryWithIcon1,
+.iconDiv2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.buttonPrimaryWithIcon1 {
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-md);
+  background-color: var(--base-black);
+  border-radius: var(--br-sm);
+  width: 222px;
+  height: 56px;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin-right: 10px;
+}
+.iconDiv2 {
+  flex-direction: row;
+}
+.buttonName2 {
+  position: relative;
+  font-size: var(--pj-regular-18px-size);
+  line-height: 24px;
+  display: inline-block;
+  font-family: var(--regular-13px1);
+  color: var(--gray-900);
+  text-align: right;
+}
+.buttonPrimaryWithIconLeft,
+.frameDiv2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.frameDiv2 {
+  flex-direction: row;
+  gap: var(--gap-md);
+}
+.buttonPrimaryWithIconLeft {
+  cursor: pointer;
+  border: 2px solid var(--gray-400);
+  padding: var(--padding-md);
+  background-color: transparent;
+  border-radius: var(--br-sm);
+  box-sizing: border-box;
+  width: 246px;
+  height: 56px;
+  flex-direction: column;
+}
+.buttonsDiv {
+  display: flex;
+  align-items: center;
+}
+.contentDiv2 {
+  width: 100%;
+  min-height: 324px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 50px 0 20px 0;
+}
+
+.contentDiv2 > div {
+  margin-bottom: 15px;
+}
+
+.mailbes {
+  font-size: var(--bold-16px1-size);
+  letter-spacing: 3px;
+  line-height: 30px;
+  text-transform: uppercase;
+  display: inline-block;
+  font-family: var(--regular-13px1);
+  color: var(--gray-900);
+  text-align: left;
+}
+
+.logoA {
+  text-decoration: none;
+}
+.loginButton {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  font-size: var(--bold-16px1-size);
+  line-height: 24px;
+  font-weight: 500;
+  font-family: var(--regular-13px1);
+  color: var(--gray-900);
+  text-align: right;
+  display: inline-block;
+}
+.menuDiv {
+  display: flex;
+  align-items: center;
+}
+
+.buttonName3 {
+  position: relative;
+  font-size: var(--bold-16px1-size);
+  line-height: 28px;
+  display: inline-block;
+  font-family: var(--regular-13px1);
+  color: var(--shades-white);
+  text-align: right;
+}
+.buttonPrimaryWithIcon2 {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-md);
+  background-color: var(--base-black);
+  border-radius: var(--br-sm);
+  width: 114px;
+  height: 45px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroDiv {
+  font-size: var(--pj-bold-52px-size);
+  font-family: var(--inter-regular-18px);
+  min-height: 500px;
+}
+
+.headerNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.headerNav .buttonPrimaryWithIcon2,
+.headerNav .loginButton {
+  margin-left: 15px;
+  text-decoration: none;
+}
+
+.homeDiv {
+  position: relative;
+  background-color: #fafafa;
+  width: 100%;
+  min-height: 100vh;
+  text-align: center;
+  font-size: var(--pj-bold-21px-size);
+  color: var(--gray-900);
+  font-family: var(--regular-13px1);
+}

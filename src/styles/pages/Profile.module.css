@@ -1,0 +1,82 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-left: 25px;
+  min-width: 300px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.info > h2 {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.info > p {
+  margin-top: 0.25rem;
+  color: rgb(107, 114, 128);
+  line-height: 1.25;
+}
+
+@media (min-width: 640px) {
+  .info {
+    min-width: 320px;
+  }
+  .info > h2 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+
+.card {
+  width: 100%;
+  max-width: 950px;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px;
+  border-radius: 0.375rem;
+  border-color: rgba(229, 231, 235, 0.5);
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px;
+  gap: 1rem;
+}
+
+.form-footer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  background-color: rgb(249, 250, 251);
+}
+
+.button {
+  color: rgb(255, 255, 255);
+  background-color: rgb(55, 65, 81);
+  border-radius: 0.375rem;
+  transition-property: color, background-color, opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+  margin: 10px 20px;
+}
+.button:hover {
+  background-color: rgb(75, 85, 99);
+}
+.button:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 calc(4px) rgb(55 65 81 / 0.2), 0 0 #0000;
+}
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.button:disabled:hover {
+  background-color: rgb(55, 65, 81);
+}

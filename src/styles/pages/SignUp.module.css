@@ -1,0 +1,218 @@
+.formDiv {
+  border-radius: var(--br-sm);
+  background-color: var(--blue-gray-900);
+  min-width: 350px;
+  max-width: 450px;
+  width: 100%;
+  padding: 20px 25px;
+}
+
+.createAnAccountToStartUsi,
+.joinUsToday {
+  display: inline-block;
+}
+.joinUsToday {
+  letter-spacing: -2px;
+  line-height: 62px;
+  font-weight: 600;
+}
+.createAnAccountToStartUsi {
+  font-size: var(--pj-regular-18px-size);
+  line-height: 30px;
+  color: var(--color-gray-800);
+  width: 449px;
+}
+.buttonNameDiv {
+  position: relative;
+  font-size: var(--bold-16px1-size);
+  letter-spacing: -0.2px;
+  line-height: 28px;
+  font-weight: 600;
+  font-family: var(--bold-52px);
+  color: var(--shades-white);
+  text-align: right;
+  display: inline-block;
+}
+.iconOutlinearrowRight {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.iconDiv {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.buttonPrimaryWithIconDiv,
+.frameDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.frameDiv {
+  flex-direction: row;
+  gap: var(--gap-sm);
+}
+.buttonPrimaryWithIconDiv {
+  border-radius: var(--br-lg);
+  background-color: var(--blue-gray-800);
+  flex-direction: column;
+  padding: var(--padding-md);
+  box-sizing: border-box;
+}
+
+.google2Icon {
+  position: absolute;
+  top: 19px;
+  left: 106.7px;
+  width: 23px;
+  height: 23px;
+}
+.button {
+  position: relative;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  width: 100%;
+  height: 60px;
+}
+
+.titleDiv {
+  width: 100%;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.inputLabelDiv {
+  position: relative;
+  font-size: var(--regular-13px1-size);
+  margin-bottom: 7px;
+  font-family: var(--bold-52px);
+  color: var(--gray-200);
+  text-align: left;
+  display: inline-block;
+}
+.frameInput {
+  border: 1px solid var(--blue-gray-700);
+  background-color: transparent;
+  align-self: stretch;
+  border-radius: var(--br-lg);
+  box-sizing: border-box;
+  position: relative;
+  height: 60px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-lg) var(--padding-xl);
+  align-items: center;
+  justify-content: flex-start;
+  color: var(--shades-white);
+  outline: none;
+  width: 100%;
+}
+
+.rememberMeDiv {
+  font-size: var(--regular-13px1-size);
+  font-family: var(--bold-52px);
+  color: var(--shades-white);
+  text-align: left;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.shapeInput {
+  cursor: pointer;
+  border-radius: var(--br-xs);
+  border: 1px solid var(--blue-gray-700);
+  box-sizing: border-box;
+  width: 19px;
+  height: 19px;
+}
+
+.checkDiv {
+  display: flex;
+  margin: 20px 0;
+  cursor: pointer;
+}
+
+.buttonPrimaryWithIcon {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-md);
+  background-color: var(--blue-600);
+  border-radius: var(--br-xl);
+  width: 200px;
+  height: 55px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  color: var(--shades-white);
+}
+.alreadyHaveAn,
+.signInSpan {
+  font-family: var(--bold-52px);
+  color: var(--neutral-500);
+}
+.signInSpan {
+  font-weight: 600;
+  color: var(--blue-600);
+  text-decoration: none;
+}
+.alreadyHaveAnContainer {
+  line-break: anywhere;
+  width: 100%;
+}
+.alreadyHaveAnAccountSign {
+  cursor: pointer;
+  font-size: var(--regular-13px1-size);
+  text-align: left;
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.signUpDiv {
+  position: relative;
+  background-color: var(--shades-white);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--pj-bold-52px-size);
+  color: var(--shades-white);
+  font-family: var(--bold-52px);
+  padding: 10px;
+}
+
+.inputBox {
+  width: 100%;
+  height: 100%;
+  color: var(--shades-white);
+  font-size: var(--pj-bold-52px-size);
+  font-family: var(--bold-52px);
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+
+.inputContentForm {
+  width: 100%;
+}
+
+.verification {
+  font-size: var(--bold-32px-size);
+  color: var(--base-black);
+}
+
+.error {
+  color: red;
+  font-size: var(--bold-16px1-size);
+}

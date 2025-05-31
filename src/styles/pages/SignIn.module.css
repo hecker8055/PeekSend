@@ -1,0 +1,216 @@
+.formDiv {
+  border-radius: var(--br-sm);
+  background-color: var(--blue-gray-900);
+  min-width: 350px;
+  max-width: 450px;
+  width: 100%;
+  padding: 20px 25px;
+}
+
+.fIllInTheRequiredDetailsT {
+  display: inline-block;
+}
+.welcomeBack {
+  letter-spacing: -2px;
+  line-height: 62px;
+  font-weight: 600;
+}
+.fIllInTheRequiredDetailsT {
+  margin: 12px 0;
+  font-size: var(--pj-regular-18px-size);
+  color: var(--color-gray-800);
+  max-width: 450px;
+}
+.buttonNameDiv {
+  position: relative;
+  letter-spacing: -0.2px;
+  line-height: 28px;
+  font-weight: 600;
+  display: inline-block;
+}
+.iconOutlinearrowRight {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.iconDiv {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.buttonPrimaryWithIconDiv,
+.frameDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.frameDiv {
+  flex-direction: row;
+  gap: var(--gap-sm);
+}
+.buttonPrimaryWithIconDiv {
+  border-radius: var(--br-lg);
+  background-color: var(--blue-gray-800);
+  width: 444px;
+  flex-direction: column;
+  padding: var(--padding-md);
+  box-sizing: border-box;
+}
+
+.google2Icon {
+  position: absolute;
+  top: 19px;
+  left: 106.7px;
+  width: 23px;
+  height: 23px;
+}
+.buttonDiv {
+  position: relative;
+  height: 60px;
+  text-align: right;
+  font-size: var(--bold-16px1-size);
+  cursor: pointer;
+}
+.titleDiv {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0 30px 0;
+}
+.inputLabelDiv {
+  position: relative;
+  font-size: var(--regular-13px1-size);
+  line-height: 22px;
+  font-family: var(--bold-52px);
+  color: var(--gray-200);
+  text-align: left;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+.frameInput {
+  border: 1px solid var(--blue-gray-700);
+  background-color: transparent;
+  align-self: stretch;
+  border-radius: var(--br-lg);
+  box-sizing: border-box;
+  position: relative;
+  height: 60px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-lg) var(--padding-xl);
+  align-items: center;
+  justify-content: flex-start;
+  outline: none;
+  color: white;
+}
+.inputTextStyle {
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 15px 0;
+}
+.frameInput,
+.inputTextStyle {
+  border-radius: var(--br-lg);
+  display: flex;
+}
+
+.checkDiv {
+  display: flex;
+  margin: 12px 0;
+}
+
+.rememberMeDiv {
+  font-size: var(--regular-13px1-size);
+  font-family: var(--bold-52px);
+  color: var(--shades-white);
+  text-align: left;
+  display: inline-block;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.shapeInput {
+  cursor: pointer;
+  border-radius: var(--br-xs);
+  border: 1px solid var(--blue-gray-700);
+  box-sizing: border-box;
+  width: 19px;
+  height: 19px;
+}
+
+.buttonNameDiv1 {
+  position: relative;
+  font-size: var(--bold-16px1-size);
+  letter-spacing: -0.2px;
+  line-height: 28px;
+  font-weight: 600;
+  font-family: var(--bold-52px);
+  color: var(--shades-white);
+  text-align: center;
+  display: inline-block;
+}
+
+.buttonPrimaryWithIcon {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-md);
+  background-color: var(--blue-600);
+  border-radius: var(--br-xl);
+  width: 200px;
+  height: 55px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+}
+.createFreeAccount,
+.dontHaveAn {
+  font-family: var(--bold-52px);
+  color: var(--neutral-500);
+}
+.createFreeAccount {
+  font-weight: 600;
+  color: var(--blue-600);
+  text-decoration: none;
+}
+.dontHaveAnContainer {
+  line-break: anywhere;
+  width: 100%;
+  margin-top: 10px;
+}
+.dontHaveAnAccountCreate {
+  cursor: pointer;
+  text-decoration: none;
+  font-size: var(--regular-13px1-size);
+  line-height: 22px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  width: 444px;
+}
+
+.signInDiv {
+  position: relative;
+  background-color: var(--shades-white);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--pj-bold-52px-size);
+  color: var(--shades-white);
+  font-family: var(--bold-52px);
+  padding: 10px;
+}
+
+.error {
+  color: red;
+  font-size: var(--bold-16px1-size);
+}

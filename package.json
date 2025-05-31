@@ -1,25 +1,7 @@
 {
-  "name": "peeksend",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hecker8055/PeekSend.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/hecker8055/PeekSend/issues"
-  },
-  "homepage": "https://github.com/hecker8055/PeekSend#readme",
-  "description": "",
+  "name": "PeekSend",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
     "@apollo/client": "^3.7.0",
     "@emotion/react": "^11.10.4",
@@ -30,7 +12,6 @@
     "@mui/lab": "^5.0.0-alpha.103",
     "@mui/material": "^5.10.9",
     "@mui/styled-engine": "^5.10.8",
-    "@nhost/nhost-js": "^3.2.8",
     "@nhost/react": "^1.13.5",
     "@nhost/react-apollo": "^4.13.5",
     "@testing-library/jest-dom": "^5.16.5",
@@ -41,7 +22,7 @@
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "classnames": "^2.3.2",
-    "express": "^5.1.0",
+    "express": "^4.18.2",
     "graphql": "^16.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -50,5 +31,29 @@
     "react-router-dom": "^6.4.2",
     "react-scripts": "^5.0.1",
     "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
