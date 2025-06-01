@@ -20,14 +20,14 @@ const ADD_EMAIL = gql`
     $email: String
     $description: String
     $img_text: String
-    $user: String
+    $user: uuid
   ) {
     insert_emails(
       objects: {
         description: $description
         email: $email
         img_text: $img_text
-        user: $user
+        
       }
     ) {
       affected_rows
@@ -57,7 +57,7 @@ const PopUp = ({ setPopUp }) => {
           email: email,
           description: description,
           img_text: imgText.split("=")[1],
-          user: user?.id,
+          
         },
       });
       toast.success("Email added successfully");
@@ -71,7 +71,7 @@ const PopUp = ({ setPopUp }) => {
   useEffect(() => {
     const time = new Date().getTime();
     setImgText(
-      `https://nhqwhduuobpgwnoqthyx.nhost.run/v1/functions/update?text=${time}`
+      `https://kmcsbcogtktanptlgydx.nhost.run/v1/functions/update?text=${time}`
     );
   }, []);
 
