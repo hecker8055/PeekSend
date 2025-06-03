@@ -34,7 +34,7 @@ const Home = () => {
         <nav className={styles.videoNav} id="video-container">
           <iframe
             className={styles.bGIframe}
-            src="https://www.youtube.com/embed/spfi8hGXjrA?rel=0"
+            src=""
             frameBorder="0"
             allowFullScreen
           />
