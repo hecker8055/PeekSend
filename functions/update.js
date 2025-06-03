@@ -8,6 +8,8 @@ const nhost = new NhostClient({
 });
 
 nhost.graphql.setAccessToken(accessToken);
+console.log("accessToken", accessToken);
+
 
 export default async (req, res) => {
   // get the data from the request
@@ -38,7 +40,10 @@ export default async (req, res) => {
   try {
     const { data, error } = await nhost.graphql.request(GET_EMAIL_ID, {
       text: imgText,
+      
     });
+
+    console.log("Fetched data:", data);
 
     if (error) {
       return res.status(500).json({ error: error.message });
@@ -57,11 +62,12 @@ export default async (req, res) => {
     }
 
     //update the seen column in emails table
-    const { data: updatedData, error: updateError } =
-      await nhost.graphql.request(UPDATE_QUERY, {
-        id: emailId,
-        date: new Date(),
-      });
+    const { data: updatedData, error: updateError } = await nhost.graphql.request(UPDATE_QUERY, {
+  id: emailId,
+  date: new Date().toISOString(),
+});
+      console.log("Update result:", updatedData);
+console.log("Update error:", updateError)
 
     if (updateError) {
       return res.status(500).json({ error: error.message });

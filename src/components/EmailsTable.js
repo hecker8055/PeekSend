@@ -5,6 +5,7 @@ import { useUserData } from "@nhost/react";
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 
+// Queries
 const GET_EMAILS = gql`
   query getEmails($user: uuid!) {
     emails(order_by: { created_at: desc }, where: { user_id: { _eq: $user } }) {
@@ -19,9 +20,22 @@ const GET_EMAILS = gql`
   }
 `;
 
+// Delete mutation
 const DELETE_EMAIL = gql`
   mutation deleteEmail($id: uuid!) {
     delete_emails(where: { id: { _eq: $id } }) {
+      affected_rows
+    }
+  }
+`;
+
+// Mark as seen mutation
+const MARK_AS_SEEN = gql`
+  mutation markEmailAsSeen($id: uuid!, $seenAt: timestamptz!) {
+    update_emails(
+      where: { id: { _eq: $id } }
+      _set: { seen: true, seen_at: $seenAt }
+    ) {
       affected_rows
     }
   }
@@ -33,11 +47,12 @@ const EmailsTable = ({ styles }) => {
 
   const { loading, error, data } = useQuery(GET_EMAILS, {
     variables: { user: user?.id || "" },
-    skip: !user?.id, // Skip query if user ID is not yet loaded
-    fetchPolicy: "network-only", // Always fetch fresh data
+    skip: !user?.id,
+    fetchPolicy: "network-only",
   });
 
   const [deleteEmailMutation, { loading: deleting }] = useMutation(DELETE_EMAIL);
+  const [markAsSeen] = useMutation(MARK_AS_SEEN);
 
   useEffect(() => {
     if (data && data.emails) {
@@ -50,14 +65,28 @@ const EmailsTable = ({ styles }) => {
     if (!confirmation) return;
 
     try {
-      await deleteEmailMutation({
-        variables: { id },
-      });
+      await deleteEmailMutation({ variables: { id } });
       toast.success("Email deleted successfully");
-      // Refresh emails after deletion
       setEmails((prev) => prev.filter((email) => email.id !== id));
     } catch (err) {
       toast.error("Unable to delete email");
+      console.error(err);
+    }
+  };
+
+  const handleEmailClick = async (email) => {
+    if (email.seen) return;
+
+    const now = new Date().toISOString();
+    try {
+      await markAsSeen({ variables: { id: email.id, seenAt: now } });
+      setEmails((prev) =>
+        prev.map((e) =>
+          e.id === email.id ? { ...e, seen: true, seen_at: now } : e
+        )
+      );
+    } catch (err) {
+      toast.error("Failed to mark email as seen");
       console.error(err);
     }
   };
@@ -71,9 +100,9 @@ const EmailsTable = ({ styles }) => {
   }
 
   if (error) {
-  console.error(error);
-  return <div className={styles.loader}>Error loading emails: {error.message}</div>;
-}
+    console.error(error);
+    return <div className={styles.loader}>Error loading emails: {error.message}</div>;
+  }
 
   if (emails.length === 0) {
     return <div className={styles.loader}>No emails found</div>;
@@ -88,7 +117,12 @@ const EmailsTable = ({ styles }) => {
           </div>
         </div>
         {emails.map((email) => (
-          <div className={styles.tableCellDiv} key={email.id}>
+          <div
+            className={styles.tableCellDiv}
+            key={email.id}
+            onClick={() => handleEmailClick(email)}
+            style={{ cursor: 'pointer' }}
+          >
             <div className={styles.supportingTextDiv1}>{email.email}</div>
           </div>
         ))}

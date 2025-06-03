@@ -1,15 +1,18 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useCallback } from "react";
+import { useSignOut } from "@nhost/react";
 
 
 const Sidebar = ({ styles, user, setPopUp }) => {
   const navigate = useNavigate();
+  const { signOut } = useSignOut();
   
 
   const onLogOutButtonClick = useCallback(() => {
-    
+    signOut();        // ✅ Logs out the user from Nhost
     navigate("/");
-  }, [navigate]);
+    
+  }, [signOut,navigate]);
 
   const name = user?.metadata?.name ? user?.metadata?.name : user.displayName;
   const email = user.email;
