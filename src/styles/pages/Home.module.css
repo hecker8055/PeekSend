@@ -10,7 +10,7 @@
 .hELPMENUB {
   font-size: var(--bold-16px1-size);
   line-height: 24px;
-  color: var(--gray-900);
+  color: var(--shades-white);
 }
 .a,
 .logoTwitter2Icon {
@@ -54,18 +54,20 @@
   display: flex;
   width: 100px;
   justify-content: space-between;
+  color: white;
 }
 
 .widgetsDiv {
   display: flex;
   justify-content: space-between;
+  color: var(--shades-white);
   width: 100%;
   margin-top: 25px;
 }
 
 .widget0Div {
   max-width: 396px;
-  color: var(--gray-600);
+
   padding: 10px;
 }
 .career {
@@ -108,7 +110,7 @@
   margin-block-end: 0;
 }
 .serviceDetails {
-  color: var(--gray-900);
+  color: var(--shades-white);
 }
 .privacyPolicy {
   margin: 0;
@@ -121,7 +123,7 @@
 .widget2Div {
   width: 128px;
   height: 205px;
-  color: var(--color-gray-1500);
+  color: var(--shades-white);
 }
 .pricingPlans {
   line-height: 42px;
@@ -162,13 +164,17 @@
 .buttonPrimaryWithIcon {
   cursor: pointer;
   text-decoration: none;
-  border: 1.5px solid var(--gray-900);
+  border: 1.5px solid transparent;
   padding: var(--padding-md);
-  background-color: var(--gray-900);
+  background-color: transparent;
   border-radius: 60px;
   box-sizing: border-box;
   height: 50px;
   flex-direction: column;
+}
+.buttonPrimaryWithIcon:hover {
+  background-color: var(--base-black);
+  transition: 500ms;
 }
 .contentDiv,
 .lineDiv {
@@ -196,7 +202,7 @@
   margin: 0 auto;
   text-align: left;
   font-size: var(--regular-13px1-size);
-  color: var(--gray-900);
+  color: var(--shades-white);
   font-family: var(--regular-13px1);
   margin-top: 100px;
 }
@@ -322,7 +328,7 @@
 .smartEmailStatusFinderMa {
   font-size: var(--pj-regular-18px-size);
   line-height: 28px;
-  color: var(--gray-600);
+  color: white;
   display: inline-block;
   width: 533px;
 }
@@ -359,6 +365,11 @@
   box-sizing: border-box;
   margin-right: 10px;
 }
+
+.buttonPrimaryWithIcon1:hover {
+  background-color: white;
+  color: black;
+}
 .iconDiv2 {
   flex-direction: row;
 }
@@ -377,15 +388,20 @@
   align-items: center;
   justify-content: center;
 }
+.buttonPrimaryWithIconLeft:hover {
+  background: black;
+  color: white;
+  transition: 500ms;
+}
 .frameDiv2 {
   flex-direction: row;
   gap: var(--gap-md);
 }
 .buttonPrimaryWithIconLeft {
   cursor: pointer;
-  border: 2px solid var(--gray-400);
+  border: 2px solid;
   padding: var(--padding-md);
-  background-color: transparent;
+  color: white;
   border-radius: var(--br-sm);
   box-sizing: border-box;
   width: 246px;
@@ -465,6 +481,11 @@
   align-items: center;
   justify-content: center;
 }
+.buttonPrimaryWithIcon2:hover {
+  background: white;
+  color: black;
+  transition: 500ms;
+}
 
 .heroDiv {
   font-size: var(--pj-bold-52px-size);
@@ -480,21 +501,27 @@
   height: 80px;
   max-width: 1200px;
   margin: 0 auto;
+  color: white;
 }
 
 .headerNav .buttonPrimaryWithIcon2,
 .headerNav .loginButton {
   margin-left: 15px;
   text-decoration: none;
+  color: white;
+}
+.loginButton:hover {
+  transform: scale(1.3);
+  transition: 500ms;
 }
 
 .homeDiv {
   position: relative;
-  background-color: #fafafa;
+  background-color: #1a233e;
   width: 100%;
   min-height: 100vh;
   text-align: center;
   font-size: var(--pj-bold-21px-size);
-  color: var(--gray-900);
+  color: var(--shades-white);
   font-family: var(--regular-13px1);
 }
