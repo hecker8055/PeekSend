@@ -7,17 +7,12 @@
 **PeekSend** is an MIT Licensed open source project and a platform with the help of which you can find out if the Email sent by you has **been read or not**. It is a simple platform that has been designed by keeping the **user's privacy **in mind. We don't ask for full email read/write access. Instead, we provide a simple way to find the status if your email **respecting your privacy**.
 
 ## Tech stack
-
-It doesn't involve a very much complicated tech stack. Instead, it uses only a few technologies like React and Nhost.
-
 - **React** -> For frontend part
 - **Nhost** -> For user authentication, database, hosting and serverless function
 
 > If you don't know about Nhost then simply put it as a firebase alternative. Even officially, Nhost is called an open-source Firebase alternative with GraphQL.
 
 ## Process
-
-I am not going to explain all of the technical jargon here, instead, I will take you through the working process of the project.
 
 First of all, you need to create an account. Then only you can access your dashboard. Inside of your dashboard, you will see the list of emails you have sent and complete detail about them. If you haven't sent any emails then you can send one by clicking on compose button on the top left side of the page.
 
