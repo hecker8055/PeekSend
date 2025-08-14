@@ -21,11 +21,11 @@ PeekSend is an MIT Licensed open source project and a platform with the help of 
 
 ## Screenshots
 
-![App Screenshot](https://github-production-user-asset-6210df.s3.amazonaws.com/146121211/477904314-3f136e82-0528-487a-8bd9-c7e59760a239.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250814%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250814T075551Z&X-Amz-Expires=300&X-Amz-Signature=1e69a871f6d8425edc2f247c464187dba73d5d9637f630430fafb098ca38ff77&X-Amz-SignedHeaders=host)
+[![Screenshot-2025-08-14-132338.png](https://i.postimg.cc/X76D859n/Screenshot-2025-08-14-132338.png)](https://postimg.cc/CdJNMzv2)
 
-![App Screenshot](https://github-production-user-asset-6210df.s3.amazonaws.com/146121211/477905262-7fea12e2-5b5c-4a1d-b01d-b424d15396ff.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250814%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250814T075758Z&X-Amz-Expires=300&X-Amz-Signature=5c8319a349a0d81753a031847b46d056d567c954c7fc1c99aa35bc10f4989673&X-Amz-SignedHeaders=host)
+[![Screenshot-2025-08-14-132426.png](https://i.postimg.cc/g2NSmBQ0/Screenshot-2025-08-14-132426.png)](https://postimg.cc/21LFxTzp)
 
-![App Screenshot]([https://github-production-user-asset-6210df.s3.amazonaws.com/146121211/477905829-c1b4382f-2e45-476a-a79b-fe6f78f1e2f6.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250814%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250814T075907Z&X-Amz-Expires=300&X-Amz-Signature=5501de07873f5ed0f6e36d951c8a32d9e3acfd6cb154d2416dae8bb94905478d&X-Amz-SignedHeaders=host](https://github.com/user-attachments/assets/c1b4382f-2e45-476a-a79b-fe6f78f1e2f6))
+[![Screenshot-2025-08-14-132444.png](https://i.postimg.cc/XY7LHkq6/Screenshot-2025-08-14-132444.png)](https://postimg.cc/4mqpntpW)
 
 
 ## Environment Variables
