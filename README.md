@@ -56,4 +56,12 @@ Install my-project with npm
   npm i
   npm run start
 ```
+
+## Process
+
+First of all, you need to create an account. Then only you can access your dashboard. Inside of your dashboard, you will see the list of emails you have sent and complete detail about them. If you haven't sent any emails then you can send one by clicking on compose button on the top left side of the page.
+
+No, you can't send emails from here. Instead, you will be provided an image (1x1 transparent pixel) which you can copy and paste to the email client from where you are sending the email. Then fill out some more information about the email (it will make it easy to find the email in the future) and click save.
+
+After you sent your email, you can now access the status of the email on the dashboard. The status is either seen or unseen. The status will be updated when the receiver opens up the email you sent. And the serverless function helps to do that by accepting the receiver's request and updating it on the database.
     
