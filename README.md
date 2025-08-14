@@ -16,7 +16,7 @@ PeekSend is an MIT Licensed open source project and a platform with the help of 
 
 ## Architecture
 
-![App Screenshot](https://github-production-user-asset-6210df.s3.amazonaws.com/146121211/477899603-9ca74fc5-69a8-44b0-9b31-b2bc3a6e3f6c.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250814%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250814T074835Z&X-Amz-Expires=300&X-Amz-Signature=5869015742b704214b1ebc04c8331419454c8b75377651cb6d0d7a151e0f4323&X-Amz-SignedHeaders=host)
+[![hasura-query-engine.png](https://i.postimg.cc/6QbmL1fP/hasura-query-engine.png)](https://postimg.cc/B8DpJpy5)
 
 
 ## Screenshots
