@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 const GET_EMAILS = gql`
   query getEmails($user: uuid!) {
-    emails(order_by: { created_at: desc }, where: { user_id: { _eq: $user } }) {
+    emails(order_by: { created_at: desc }, where: { user: { _eq: $user } }) {
       created_at
       description
       email
@@ -37,7 +37,8 @@ const EmailsTable = ({ styles }) => {
     fetchPolicy: "network-only", // Always fetch fresh data
   });
 
-  const [deleteEmailMutation, { loading: deleting }] = useMutation(DELETE_EMAIL);
+  const [deleteEmailMutation, { loading: deleting }] =
+    useMutation(DELETE_EMAIL);
 
   useEffect(() => {
     if (data && data.emails) {
@@ -46,7 +47,9 @@ const EmailsTable = ({ styles }) => {
   }, [data]);
 
   const deleteEmail = async (id) => {
-    const confirmation = window.confirm("Are you sure you want to delete this?");
+    const confirmation = window.confirm(
+      "Are you sure you want to delete this?"
+    );
     if (!confirmation) return;
 
     try {
@@ -71,9 +74,11 @@ const EmailsTable = ({ styles }) => {
   }
 
   if (error) {
-  console.error(error);
-  return <div className={styles.loader}>Error loading emails: {error.message}</div>;
-}
+    console.error(error);
+    return (
+      <div className={styles.loader}>Error loading emails: {error.message}</div>
+    );
+  }
 
   if (emails.length === 0) {
     return <div className={styles.loader}>No emails found</div>;

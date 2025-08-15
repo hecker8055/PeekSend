@@ -83,7 +83,7 @@ const SignIn = ({ nhost }) => {
                 <input
                   className={styles.frameInput}
                   type="email"
-                  placeholder="i.e. xyz@mail.com"
+                  placeholder="Enter Your Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   disabled={disableForm}

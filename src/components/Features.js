@@ -1,38 +1,48 @@
 import React from "react";
+import { MdAttachEmail } from "react-icons/md";
+import { FaCircleCheck } from "react-icons/fa6";
+import { FaHistory } from "react-icons/fa";
 
 function Features({ styles }) {
+  const features = [
+    {
+      icon: <MdAttachEmail />,
+      title: "Send",
+      description: "Compose a new email with pixel tracking enabled.",
+    },
+    {
+      icon: <FaCircleCheck />,
+      title: "Status",
+      description: "Know if the user read the email or not.",
+    },
+    {
+      icon: <FaHistory />,
+      title: "History",
+      description: "Find out exactly when the receiver read your mail.",
+    },
+  ];
+
   return (
-    <div className={styles.featureDiv}>
-      <div className={styles.contentDiv1}>
-        <b className={styles.useEmailLikeAGeek}>Use email like a geek</b>
-        <div className={styles.exploreTheUnexploredPotenti}>
+    <section id="features" className={styles.featureSection}>
+      {/* Header */}
+      <div className={styles.featureHeader}>
+        <h2 className={styles.featureTitle}>Use email like a geek</h2>
+        <p className={styles.featureSubtitle}>
           Explore the unexplored potential of email
-        </div>
+        </p>
       </div>
-      <div className={styles.listDiv}>
-        <div className={styles.div}>
-          <img className={styles.sendIcon} alt="" src="../send@2x.png" />
-          <b className={styles.sendB}>Send</b>
-          <div className={styles.sendEmailDirectlyFromTheD}>
-            Compose a new email with pixel tracking enabled.
+
+      {/* Features List */}
+      <div className={styles.featureList}>
+        {features.map((feature, index) => (
+          <div className={styles.featureCard} key={index}>
+            <div className={styles.featureIcon}>{feature.icon}</div>
+            <h3 className={styles.featureCardTitle}>{feature.title}</h3>
+            <p className={styles.featureCardDesc}>{feature.description}</p>
           </div>
-        </div>
-        <div className={styles.div1}>
-          <img className={styles.vectorIcon} alt="" src="../vector.svg" />
-          <b className={styles.statusB}>Status</b>
-          <div className={styles.knowIfTheUserReadTheEmai}>
-            Know if the user read the email or not.
-          </div>
-        </div>
-        <div className={styles.div2}>
-          <img className={styles.vectorIcon1} alt="" src="../vector1.svg" />
-          <b className={styles.historyB}>History</b>
-          <div className={styles.findOutExactlyWhenTheRece}>
-            Find out exactly when the receiver read your mail.
-          </div>
-        </div>
+        ))}
       </div>
-    </div>
+    </section>
   );
 }
 

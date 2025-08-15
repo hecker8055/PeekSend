@@ -1,13 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useCallback } from "react";
 
-
 const Sidebar = ({ styles, user, setPopUp }) => {
   const navigate = useNavigate();
-  
 
   const onLogOutButtonClick = useCallback(() => {
-    
     navigate("/");
   }, [navigate]);
 
@@ -21,13 +18,6 @@ const Sidebar = ({ styles, user, setPopUp }) => {
   return (
     <div className={styles.sideBarDiv}>
       <Link className={styles.logoA} to="/">
-        <img
-          className={styles.contactMailIcon}
-          alt=""
-          src="../PeekSendLogo.svg"
-          width="100"
-          height="100"
-        />
         <div className={styles.mAILBESDiv}>PeekSend</div>
       </Link>
       <button

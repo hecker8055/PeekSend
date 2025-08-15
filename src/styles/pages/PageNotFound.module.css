@@ -4,19 +4,47 @@
   height: 118.15px;
   flex-shrink: 0;
 }
+
+/* Scale down illustration icon on smaller screens */
+@media (max-width: 480px) {
+  .illustrationIcon {
+    width: 140px;
+    height: 90px;
+  }
+}
+
 .icons,
 .textDiv {
   position: relative;
 }
+
 .icons {
   width: 12px;
   height: 12px;
   flex-shrink: 0;
 }
+
+/* Slightly larger icons on larger screens */
+@media (min-width: 1024px) {
+  .icons {
+    width: 16px;
+    height: 16px;
+  }
+}
+
 .textDiv {
   font-weight: 600;
   display: inline-block;
+  font-size: 1rem;
 }
+
+/* Responsive font size for textDiv on small screens */
+@media (max-width: 480px) {
+  .textDiv {
+    font-size: 0.9rem;
+  }
+}
+
 .badgeDiv {
   border-radius: var(--br-2xs);
   background-color: var(--error-red-50);
@@ -28,6 +56,7 @@
   justify-content: flex-start;
   gap: var(--gap-xs);
 }
+
 .titleDiv {
   align-self: stretch;
   position: relative;
@@ -37,6 +66,13 @@
   text-align: center;
   display: inline-block;
 }
+
+@media (max-width: 480px) {
+  .titleDiv {
+    font-size: 1.5rem;
+  }
+}
+
 .headingDiv {
   align-self: stretch;
   display: flex;
@@ -45,6 +81,7 @@
   justify-content: flex-start;
   gap: var(--gap-xs);
 }
+
 .paragraphDiv {
   align-self: stretch;
   position: relative;
@@ -53,6 +90,14 @@
   text-align: center;
   display: inline-block;
 }
+
+@media (max-width: 480px) {
+  .paragraphDiv {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+}
+
 .contentDiv {
   align-self: stretch;
   display: flex;
@@ -60,7 +105,9 @@
   align-items: center;
   justify-content: flex-start;
   gap: var(--gap-lg);
+  padding: 0 15px;
 }
+
 .labelDiv {
   position: absolute;
   top: calc(50% - 10px);
@@ -73,6 +120,18 @@
   text-align: center;
   display: inline-block;
 }
+
+/* Adjust position on smaller screens */
+@media (max-width: 480px) {
+  .labelDiv {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 10px 0;
+    font-size: 1rem;
+  }
+}
+
 .cTAButton {
   cursor: pointer;
   border: 0;
@@ -84,7 +143,19 @@
   height: 40px;
   flex-shrink: 0;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+/* Make call-to-action button full width on small devices */
+@media (max-width: 480px) {
+  .cTAButton {
+    width: 100%;
+    height: 45px;
+  }
+}
+
 .containerDiv {
   align-self: stretch;
   flex-shrink: 0;
@@ -93,11 +164,14 @@
   align-items: center;
   justify-content: center;
   gap: var(--gap-xl);
+  padding: 0 15px;
 }
+
 .errorDiv,
 .pageNotFound {
   background-color: var(--shades-white);
 }
+
 .errorDiv {
   border-radius: var(--br-2xs);
   max-width: 528px;
@@ -109,6 +183,15 @@
   justify-content: flex-start;
   gap: var(--gap-xl);
 }
+
+/* Responsive padding and width on small screens */
+@media (max-width: 480px) {
+  .errorDiv {
+    max-width: 100%;
+    padding: 40px 20px;
+  }
+}
+
 .pageNotFound {
   position: relative;
   width: 100%;
@@ -119,4 +202,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 15px;
+}
+
+@media (max-width: 480px) {
+  .pageNotFound {
+    font-size: 12px;
+    padding: 10px;
+  }
 }
