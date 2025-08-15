@@ -6,7 +6,7 @@ const Sidebar = ({ styles, user, setPopUp }) => {
 
   const onLogOutButtonClick = useCallback(() => {
     navigate("/");
-  }, [navigate]);
+  }, [signOut, navigate]);
 
   const name = user?.metadata?.name ? user?.metadata?.name : user.displayName;
   const email = user.email;

@@ -29,7 +29,7 @@ export default async (req, res) => {
 
   // update query with the email id
   const UPDATE_QUERY = `
-    mutation UpdateEmail($id: uuid!, $date: timestamptz!) {
+    mutation UpdateEmail($id: Int!, $date: timestamptz!) {
       update_emails(where: {id: {_eq: $id}}, _set: {seen: true, seen_at: $date}) {
         affected_rows
       }

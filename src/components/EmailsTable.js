@@ -3,11 +3,16 @@ import { IconButton, CircularProgress } from "@mui/material";
 import { gql, useQuery, useMutation } from "@apollo/client";
 import { useUserData } from "@nhost/react";
 import toast from "react-hot-toast";
-import { useEffect, useState } from "react";
+import "../styles/EmailsTable.css";
 
+// QUERIES AND MUTATIONS
 const GET_EMAILS = gql`
   query getEmails($user: uuid!) {
+<<<<<<< HEAD
     emails(order_by: { created_at: desc }, where: { user: { _eq: $user } }) {
+=======
+    emails(where: { user: { _eq: $user } }) {
+>>>>>>> 722c7ea7cbf269416069ef846f3efacb2540dae5
       created_at
       description
       email
@@ -27,16 +32,30 @@ const DELETE_EMAIL = gql`
   }
 `;
 
-const EmailsTable = ({ styles }) => {
+const MARK_AS_SEEN = gql`
+  mutation markEmailAsSeen($id: uuid!, $seenAt: timestamptz!) {
+    update_emails(
+      where: { id: { _eq: $id } }
+      _set: { seen: true, seen_at: $seenAt }
+    ) {
+      returning {
+        id
+        seen
+        seen_at
+      }
+    }
+  }
+`;
+
+const EmailsTable = () => { // No longer needs the {styles} prop
   const user = useUserData();
-  const [emails, setEmails] = useState([]);
 
   const { loading, error, data } = useQuery(GET_EMAILS, {
-    variables: { user: user?.id || "" },
-    skip: !user?.id, // Skip query if user ID is not yet loaded
-    fetchPolicy: "network-only", // Always fetch fresh data
+    variables: { user: user?.id },
+    skip: !user?.id,
   });
 
+<<<<<<< HEAD
   const [deleteEmailMutation, { loading: deleting }] =
     useMutation(DELETE_EMAIL);
 
@@ -52,22 +71,41 @@ const EmailsTable = ({ styles }) => {
     );
     if (!confirmation) return;
 
+=======
+  const [deleteEmailMutation, { loading: deleting }] = useMutation(DELETE_EMAIL, {
+      refetchQueries: [{ query: GET_EMAILS, variables: { user: user?.id } }],
+  });
+  
+  const [markAsSeen] = useMutation(MARK_AS_SEEN);
+
+  const deleteEmail = async (id) => {
+    if (!window.confirm("Are you sure you want to delete this?")) return;
+>>>>>>> 722c7ea7cbf269416069ef846f3efacb2540dae5
     try {
-      await deleteEmailMutation({
-        variables: { id },
-      });
+      await deleteEmailMutation({ variables: { id } });
       toast.success("Email deleted successfully");
-      // Refresh emails after deletion
-      setEmails((prev) => prev.filter((email) => email.id !== id));
     } catch (err) {
       toast.error("Unable to delete email");
       console.error(err);
     }
   };
 
+  const handleEmailClick = async (email) => {
+    if (email.seen) return;
+    const now = new Date().toISOString();
+    try {
+      await markAsSeen({ variables: { id: email.id, seenAt: now } });
+    } catch (err) {
+      toast.error("Failed to mark email as seen");
+      console.error(err);
+    }
+  };
+  
+  const emails = data?.emails || [];
+
   if (loading) {
     return (
-      <div className={styles.loader}>
+      <div className="loader">
         <CircularProgress />
       </div>
     );
@@ -75,106 +113,71 @@ const EmailsTable = ({ styles }) => {
 
   if (error) {
     console.error(error);
+<<<<<<< HEAD
     return (
       <div className={styles.loader}>Error loading emails: {error.message}</div>
     );
+=======
+    return <div className="loader">Error loading emails: {error.message}</div>;
+>>>>>>> 722c7ea7cbf269416069ef846f3efacb2540dae5
   }
 
   if (emails.length === 0) {
-    return <div className={styles.loader}>No emails found</div>;
+    return <div className="loader">No emails found</div>;
   }
 
   return (
-    <div className={styles.contentDiv1}>
-      <div className={styles.columnDiv}>
-        <div className={styles.tableHeaderCell}>
-          <div className={styles.tableHeaderDiv}>
-            <div className={styles.textDiv1}>Email</div>
-          </div>
-        </div>
-        {emails.map((email) => (
-          <div className={styles.tableCellDiv} key={email.id}>
-            <div className={styles.supportingTextDiv1}>{email.email}</div>
-          </div>
-        ))}
+    <div className="tableContainer">
+      {/* Table Headers */}
+      <div className="tableHeaderRow">
+        <div className="tableHeaderCell">Email</div>
+        <div className="tableHeaderCell">Status</div>
+        <div className="tableHeaderCell">Description</div>
+        <div className="tableHeaderCell">Date sent</div>
+        <div className="tableHeaderCell">Date seen</div>
+        <div className="tableHeaderCell">Actions</div>
       </div>
 
-      <div className={styles.columnDiv1}>
-        <div className={styles.tableHeaderCell1}>
-          <div className={styles.tableHeaderDiv1}>
-            <div className={styles.textDiv1}>Status</div>
+      {/* Table Body */}
+      {emails.map((email) => (
+        <div
+          className="tableRow"
+          key={email.id}
+          onClick={() => handleEmailClick(email)}
+          style={{ cursor: email.seen ? 'default' : 'pointer' }}
+        >
+          <div className="tableCell">{email.email}</div>
+          
+          <div className="tableCell">
+            <span className={email.seen ? "seenBadge" : "unseenBadge"}>
+              {email.seen ? "Seen" : "Unseen"}
+            </span>
           </div>
-        </div>
-        {emails.map(({ seen, id }) => (
-          <div className={styles.tableCellDiv} key={id}>
-            <div className={styles.badgeDiv}>
-              <div className={styles.badgeBaseDiv}>
-                <div className={seen ? styles.textDiv : styles.textDiv1}>
-                  {seen ? "Seen" : "Unseen"}
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
 
-      <div className={styles.columnDiv2}>
-        <div className={styles.tableHeaderCell}>
-          <div className={styles.tableHeaderDiv1}>
-            <div className={styles.textDiv1}>Description</div>
+          <div className="tableCell">{email.description}</div>
+          
+          <div className="tableCell">
+            {new Date(email.created_at).toLocaleString()}
           </div>
-        </div>
-        {emails.map(({ description, id }) => (
-          <div className={styles.tableCellDiv} key={id}>
-            <div className={styles.supportingTextDiv1}>{description}</div>
+          
+          <div className="tableCell">
+            {email.seen ? new Date(email.seen_at).toLocaleString() : "Not seen"}
           </div>
-        ))}
-      </div>
-
-      <div className={styles.columnDiv3}>
-        <div className={styles.tableHeaderCell}>
-          <div className={styles.tableHeaderDiv1}>
-            <div className={styles.textDiv1}>Date sent</div>
-          </div>
-        </div>
-        {emails.map(({ created_at, id }) => (
-          <div className={styles.tableCellDiv} key={id}>
-            <div className={styles.dateDiv}>
-              {new Date(created_at).toLocaleString()}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className={styles.columnDiv3}>
-        <div className={styles.tableHeaderCell}>
-          <div className={styles.tableHeaderDiv1}>
-            <div className={styles.textDiv1}>Date seen</div>
-          </div>
-        </div>
-        {emails.map(({ seen_at, id, seen }) => (
-          <div className={styles.tableCellDiv} key={id}>
-            <div className={styles.dateDiv}>
-              {seen ? new Date(seen_at).toLocaleString() : "Not seen"}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className={styles.dropdownDiv}>
-        <div className={styles.tableHeaderCell8} />
-        {emails.map(({ id }) => (
-          <div className={styles.tableCellButton} key={id}>
+          
+          <div className="tableCell">
             <IconButton
-              onClick={() => deleteEmail(id)}
+              onClick={(e) => {
+                e.stopPropagation();
+                deleteEmail(email.id);
+              }}
               disabled={deleting}
               aria-label="delete email"
             >
               <Delete />
             </IconButton>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   );
 };
