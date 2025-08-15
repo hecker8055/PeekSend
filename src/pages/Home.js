@@ -31,14 +31,6 @@ const Home = () => {
 
       <div className={styles.homeDiv}>
         <Hero styles={styles} />
-        <nav className={styles.videoNav} id="video-container">
-          <iframe
-            className={styles.bGIframe}
-            src=""
-            frameBorder="0"
-            allowFullScreen
-          />
-        </nav>
         <Features styles={styles} />
         <Footer styles={styles} />
       </div>

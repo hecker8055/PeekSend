@@ -45,7 +45,7 @@ const SignUp = ({ nhost }) => {
   return (
     <>
       <Helmet>
-        <title>Sign Up - Mailsbe</title>
+        <title>Sign Up - PeekSend</title>
       </Helmet>
       <div className={styles.signUpDiv}>
         {needsEmailVerification ? (
@@ -65,7 +65,6 @@ const SignUp = ({ nhost }) => {
                 <div className={styles.buttonPrimaryWithIconDiv}>
                   <div className={styles.frameDiv}>
                     <div className={styles.buttonNameDiv}>
-                      {" "}
                       Sign up with Google
                     </div>
                     <div className={styles.iconDiv}>
@@ -94,7 +93,7 @@ const SignUp = ({ nhost }) => {
                 <input
                   className={styles.frameInput}
                   type="text"
-                  placeholder="i.e. Aashish Panthi"
+                  placeholder="Enter Your Name"
                   name="name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -107,7 +106,7 @@ const SignUp = ({ nhost }) => {
                 <input
                   className={styles.frameInput}
                   type="email"
-                  placeholder="i.e. aashish@mail.com"
+                  placeholder="Enter Your Email"
                   name="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}

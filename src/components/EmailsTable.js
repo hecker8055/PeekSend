@@ -8,7 +8,11 @@ import "../styles/EmailsTable.css";
 // QUERIES AND MUTATIONS
 const GET_EMAILS = gql`
   query getEmails($user: uuid!) {
+<<<<<<< HEAD
+    emails(order_by: { created_at: desc }, where: { user: { _eq: $user } }) {
+=======
     emails(where: { user: { _eq: $user } }) {
+>>>>>>> 722c7ea7cbf269416069ef846f3efacb2540dae5
       created_at
       description
       email
@@ -51,6 +55,23 @@ const EmailsTable = () => { // No longer needs the {styles} prop
     skip: !user?.id,
   });
 
+<<<<<<< HEAD
+  const [deleteEmailMutation, { loading: deleting }] =
+    useMutation(DELETE_EMAIL);
+
+  useEffect(() => {
+    if (data && data.emails) {
+      setEmails(data.emails);
+    }
+  }, [data]);
+
+  const deleteEmail = async (id) => {
+    const confirmation = window.confirm(
+      "Are you sure you want to delete this?"
+    );
+    if (!confirmation) return;
+
+=======
   const [deleteEmailMutation, { loading: deleting }] = useMutation(DELETE_EMAIL, {
       refetchQueries: [{ query: GET_EMAILS, variables: { user: user?.id } }],
   });
@@ -59,6 +80,7 @@ const EmailsTable = () => { // No longer needs the {styles} prop
 
   const deleteEmail = async (id) => {
     if (!window.confirm("Are you sure you want to delete this?")) return;
+>>>>>>> 722c7ea7cbf269416069ef846f3efacb2540dae5
     try {
       await deleteEmailMutation({ variables: { id } });
       toast.success("Email deleted successfully");
@@ -91,7 +113,13 @@ const EmailsTable = () => { // No longer needs the {styles} prop
 
   if (error) {
     console.error(error);
+<<<<<<< HEAD
+    return (
+      <div className={styles.loader}>Error loading emails: {error.message}</div>
+    );
+=======
     return <div className="loader">Error loading emails: {error.message}</div>;
+>>>>>>> 722c7ea7cbf269416069ef846f3efacb2540dae5
   }
 
   if (emails.length === 0) {
