@@ -206,124 +206,89 @@
   font-family: var(--regular-13px1);
   margin-top: 100px;
 }
-.sendB,
-.sendEmailDirectlyFromTheD {
-  line-height: 28px;
-  display: inline-block;
-  width: 315px;
-}
-.sendEmailDirectlyFromTheD {
-  font-size: var(--bold-16px1-size);
-  line-height: 26px;
-  color: var(--gray-600);
-  width: 283px;
-}
-
-.sendIcon {
-  width: 63px;
-  height: 63px;
-  object-fit: cover;
-}
-.div {
-  position: relative;
-  width: 315px;
-  height: 195px;
-}
-.knowIfTheUserReadTheEmai,
-.statusB {
-  line-height: 28px;
-  display: inline-block;
-  width: 315px;
-}
-.knowIfTheUserReadTheEmai {
-  font-size: var(--bold-16px1-size);
-  line-height: 26px;
-  color: var(--gray-600);
-  width: 240px;
-}
-.vectorIcon {
-  height: 24.8%;
-  width: 14.6%;
-  max-width: 100%;
-  overflow: hidden;
-  max-height: 100%;
-}
-.div1 {
-  position: relative;
-  width: 315px;
-  height: 193px;
-}
-.findOutExactlyWhenTheRece,
-.historyB {
-  line-height: 28px;
-  display: inline-block;
-  width: 315px;
-}
-.findOutExactlyWhenTheRece {
-  font-size: var(--bold-16px1-size);
-  line-height: 26px;
-  color: var(--gray-600);
-  width: 290px;
-}
-.vectorIcon1 {
-  height: 19.47%;
-  width: 13.02%;
-  max-width: 100%;
-  overflow: hidden;
-  max-height: 100%;
-}
-.div2 {
-  position: relative;
-  width: 315px;
-  height: 187px;
-}
-
-.listDiv {
-  display: flex;
+.featureSection {
   max-width: 996px;
-  flex-wrap: wrap;
+  margin: 50px auto;
+  padding: 0 20px;
 }
 
-.exploreTheUnexploredPotenti {
+.featureHeader {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.featureTitle {
+  font-size: var(--pj-bold-42px-size);
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.featureSubtitle {
   font-size: var(--pj-regular-18px-size);
   color: var(--gray-600);
-  margin-bottom: 30px;
 }
 
-.contentDiv1 {
-  max-width: 616px;
-  margin: 0 auto;
-  margin-top: 100px;
-  font-size: var(--pj-bold-42px-size);
-}
-.featureDiv {
-  max-width: 996px;
-  position: relative;
-  margin: 25px auto;
-  margin-top: 50px;
-}
-.bGIframe,
-.videoNav {
-  width: 880px;
-  height: 526px;
-  margin: 0 auto;
-  margin-top: 50px;
-}
-.bGIframe {
-  top: 0;
-  left: 0;
-  border-radius: var(--br-sm);
-  background-color: var(--shades-white);
-  box-shadow: 0 24px 164px -20px rgba(35, 40, 105, 0.15);
+.featureList {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 32px;
+  /* Remove flex-wrap: wrap; so cards do not drop to next line */
 }
 
-.knowIfYourEmailHasBeenRe {
-  line-height: 62px;
-  font-weight: 800;
-  font-family: var(--regular-13px1);
-  display: inline-block;
-  width: 627px;
+.featureCard {
+  flex: 1 1 0px; /* grow equally, shrink equally, base 0px */
+  max-width: 320px; /* keeps cards from being too wide */
+  min-width: 220px; /* avoid being too small */
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(35, 40, 105, 0.1);
+  padding: 32px 18px;
+  text-align: center;
 }
+
+.featureCard:hover {
+  transform: translateY(-5px);
+}
+
+.featureIcon {
+  font-size: 40px;
+  color: var(--base-black);
+  margin-bottom: 15px;
+}
+
+.featureCardTitle {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: black;
+}
+
+.featureCardDesc {
+  font-size: var(--bold-16px1-size);
+  line-height: 1.5;
+  color: var(--base-black);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .featureList {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (max-width: 950px) {
+  .featureList {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .featureCard {
+    max-width: 90vw;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
 .createYourAccountForFree,
 .smartEmailStatusFinderMa {
   font-size: var(--pj-regular-18px-size);
@@ -367,9 +332,10 @@
 }
 
 .buttonPrimaryWithIcon1:hover {
-  background-color: white;
-  color: black;
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
 }
+
 .iconDiv2 {
   flex-direction: row;
 }
@@ -389,9 +355,8 @@
   justify-content: center;
 }
 .buttonPrimaryWithIconLeft:hover {
-  background: black;
-  color: white;
-  transition: 500ms;
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
 }
 .frameDiv2 {
   flex-direction: row;
@@ -439,7 +404,10 @@
 
 .logoA {
   text-decoration: none;
+  color: #fff;
+  font-weight: 700; /* Explicit numeric value for bold */
 }
+
 .loginButton {
   cursor: pointer;
   border: 0;
@@ -482,9 +450,8 @@
   justify-content: center;
 }
 .buttonPrimaryWithIcon2:hover {
-  background: white;
-  color: black;
-  transition: 500ms;
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
 }
 
 .heroDiv {

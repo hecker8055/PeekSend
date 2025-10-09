@@ -1,0 +1,75 @@
+.tableContainer {
+    width: 100%;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .tableHeaderRow,
+  .tableRow {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+  
+  .tableRow:last-child {
+    border-bottom: none;
+  }
+  
+  .tableRow:hover {
+    background-color: #f7f7f7;
+  }
+  
+  .tableHeaderCell,
+  .tableCell {
+    flex: 1;
+    padding: 16px 8px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .tableHeaderCell {
+    font-weight: 600;
+    color: #555;
+  }
+  
+  .tableCell {
+    color: #333;
+  }
+  
+  .tableCell:last-child,
+  .tableHeaderCell:last-child {
+    flex: 0 0 80px;
+    text-align: center;
+  }
+  
+  .seenBadge,
+  .unseenBadge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    display: inline-block;
+  }
+  
+  .unseenBadge {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+  }
+  
+  .seenBadge {
+    background-color: #f3e5f5;
+    color: #6a1b9a;
+  }
+  
+  .loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+  }

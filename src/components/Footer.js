@@ -1,4 +1,7 @@
 import React from "react";
+import { FaInstagram } from "react-icons/fa6";
+import { FaGithub } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function Footer({ styles }) {
   return (
@@ -39,29 +42,28 @@ function Footer({ styles }) {
               href="https://instagram.com/_piyush11__"
               target="_blank"
             >
-              <img
-                className={styles.logoInstagram1Icon}
-                alt=""
-                src="../images/instagram.svg"
-              />
+              <div className={styles.logoInstagram1Icon}>
+                <FaInstagram />
+              </div>
             </a>
-            <a className={styles.a3} href="https://github.com/piyush192004">
-              <img
-                className={styles.logoGithub1Icon}
-                alt=""
-                src="../images/github-mark.svg"
-              />
+            <a
+              className={styles.a3}
+              href="https://github.com/piyush192004/PeekSend"
+            >
+              <div className={styles.logoGithub1Icon}>
+                <FaGithub />
+              </div>
             </a>
           </div>
         </div>
         <div className={styles.widget1Div}>
           <b className={styles.hELPMENUB1}>Company</b>
-          <a className={styles.about} href="../pages/About.js">
+          <Link className={styles.about} to="/">
             About
-          </a>
+          </Link>
           <a className={styles.career}>Career</a>
           <a className={styles.worksA}>Works</a>
-          <a href="../pages/Features.js" className={styles.features}>
+          <a href="/" className={styles.features}>
             Features
           </a>
         </div>

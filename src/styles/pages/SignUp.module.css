@@ -5,23 +5,48 @@
   max-width: 450px;
   width: 100%;
   padding: 20px 25px;
+  box-sizing: border-box;
+  margin: 0 auto;
 }
 
 .createAnAccountToStartUsi,
 .joinUsToday {
   display: inline-block;
 }
+
 .joinUsToday {
   letter-spacing: -2px;
   line-height: 62px;
   font-weight: 600;
+  font-size: 2rem;
 }
+
+/* Responsive adjustment for heading */
+@media (max-width: 480px) {
+  .joinUsToday {
+    letter-spacing: normal;
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+}
+
 .createAnAccountToStartUsi {
   font-size: var(--pj-regular-18px-size);
   line-height: 30px;
   color: var(--color-gray-800);
   width: 449px;
 }
+
+/* Responsive width and font size adjustment */
+@media (max-width: 480px) {
+  .createAnAccountToStartUsi {
+    width: 100%;
+    font-size: 1rem;
+    line-height: 1.4;
+    padding: 0 10px;
+  }
+}
+
 .buttonNameDiv {
   position: relative;
   font-size: var(--bold-16px1-size);
@@ -33,6 +58,7 @@
   text-align: right;
   display: inline-block;
 }
+
 .iconOutlinearrowRight {
   position: relative;
   width: 18px;
@@ -40,28 +66,42 @@
   flex-shrink: 0;
   overflow: hidden;
 }
+
 .iconDiv {
   display: none;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
+
 .buttonPrimaryWithIconDiv,
 .frameDiv {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .frameDiv {
   flex-direction: row;
   gap: var(--gap-sm);
 }
+
 .buttonPrimaryWithIconDiv {
   border-radius: var(--br-lg);
   background-color: var(--blue-gray-800);
   flex-direction: column;
   padding: var(--padding-md);
   box-sizing: border-box;
+  width: 100%;
+  max-width: 444px;
+}
+
+/* Responsive button div */
+@media (max-width: 480px) {
+  .buttonPrimaryWithIconDiv {
+    max-width: 100%;
+    padding: 12px;
+  }
 }
 
 .google2Icon {
@@ -71,6 +111,19 @@
   width: 23px;
   height: 23px;
 }
+
+/* Adjust google icon for small screens */
+@media (max-width: 480px) {
+  .google2Icon {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin-right: 8px;
+    width: 20px;
+    height: 20px;
+  }
+}
+
 .button {
   position: relative;
   cursor: pointer;
@@ -86,6 +139,7 @@
   margin-bottom: 30px;
   text-align: center;
 }
+
 .inputLabelDiv {
   position: relative;
   font-size: var(--regular-13px1-size);
@@ -95,6 +149,15 @@
   text-align: left;
   display: inline-block;
 }
+
+/* Adjust label font size on small screens */
+@media (max-width: 480px) {
+  .inputLabelDiv {
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+  }
+}
+
 .frameInput {
   border: 1px solid var(--blue-gray-700);
   background-color: transparent;
@@ -114,6 +177,14 @@
   width: 100%;
 }
 
+/* Smaller input height and padding on mobile */
+@media (max-width: 480px) {
+  .frameInput {
+    height: 50px;
+    padding: 10px 15px;
+  }
+}
+
 .rememberMeDiv {
   font-size: var(--regular-13px1-size);
   font-family: var(--bold-52px);
@@ -121,6 +192,7 @@
   text-align: left;
   display: inline-block;
   margin-left: 5px;
+  cursor: pointer;
 }
 
 .shapeInput {
@@ -153,20 +225,32 @@
   justify-content: center;
   color: var(--shades-white);
 }
+
+/* Responsive button width */
+@media (max-width: 480px) {
+  .buttonPrimaryWithIcon {
+    width: 100%;
+    height: 50px;
+  }
+}
+
 .alreadyHaveAn,
 .signInSpan {
   font-family: var(--bold-52px);
   color: var(--neutral-500);
 }
+
 .signInSpan {
   font-weight: 600;
   color: var(--blue-600);
   text-decoration: none;
 }
+
 .alreadyHaveAnContainer {
   line-break: anywhere;
   width: 100%;
 }
+
 .alreadyHaveAnAccountSign {
   cursor: pointer;
   font-size: var(--regular-13px1-size);
@@ -210,9 +294,13 @@
 .verification {
   font-size: var(--bold-32px-size);
   color: var(--base-black);
+  text-align: center;
+  margin: 20px;
 }
 
 .error {
   color: red;
   font-size: var(--bold-16px1-size);
+  text-align: center;
+  margin-top: 10px;
 }

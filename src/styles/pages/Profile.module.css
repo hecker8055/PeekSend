@@ -8,16 +8,28 @@
   box-sizing: border-box;
 }
 
+/* Responsive container adjustment */
+@media (max-width: 768px) {
+  .container {
+    margin-left: 10px;
+    gap: 1.5rem;
+    min-width: auto;
+    padding: 0 10px;
+  }
+}
+
 .info > h2 {
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
+
 .info > p {
   margin-top: 0.25rem;
   color: rgb(107, 114, 128);
   line-height: 1.25;
 }
 
+/* Adjust font sizes for larger screens */
 @media (min-width: 640px) {
   .info {
     min-width: 320px;
@@ -25,6 +37,18 @@
   .info > h2 {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+}
+
+/* Responsive font size for small screens */
+@media (max-width: 480px) {
+  .info > h2 {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  .info > p {
+    font-size: 0.875rem;
+    line-height: 1.2;
   }
 }
 
@@ -37,6 +61,17 @@
   border-color: rgba(229, 231, 235, 0.5);
   box-shadow: 0 0 #0000, 0 0 #0000, 0 4px 6px -1px rgb(0 0 0 / 0.1),
     0 2px 4px -2px rgb(0 0 0 / 0.1);
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 1rem;
+}
+
+/* On smaller screens, reduce max-width */
+@media (max-width: 768px) {
+  .card {
+    max-width: 100%;
+    padding: 0.75rem 1rem;
+  }
 }
 
 .form-fields {
@@ -46,11 +81,29 @@
   gap: 1rem;
 }
 
+/* Reduce padding on small devices */
+@media (max-width: 480px) {
+  .form-fields {
+    padding: 10px 10px;
+    gap: 0.75rem;
+  }
+}
+
 .form-footer {
   width: 100%;
   display: flex;
   justify-content: flex-end;
   background-color: rgb(249, 250, 251);
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+
+/* Stack button at center on small devices */
+@media (max-width: 480px) {
+  .form-footer {
+    justify-content: center;
+    padding: 10px 10px;
+  }
 }
 
 .button {
@@ -64,19 +117,32 @@
   height: 40px;
   cursor: pointer;
   margin: 10px 20px;
+  box-sizing: border-box;
 }
+
+/* Make button width fluid on small screens */
+@media (max-width: 480px) {
+  .button {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
 .button:hover {
   background-color: rgb(75, 85, 99);
 }
+
 .button:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
   box-shadow: 0 0 0 calc(4px) rgb(55 65 81 / 0.2), 0 0 #0000;
 }
+
 .button:disabled {
   cursor: not-allowed;
   opacity: 0.5;
 }
+
 .button:disabled:hover {
   background-color: rgb(55, 65, 81);
 }

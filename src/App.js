@@ -10,7 +10,6 @@ import Profile from "./pages/Profile";
 import PageNotFound from "./pages/PageNotFound";
 import ProtectedDashboard from "./components/ProtectedDashboard";
 import Overview from "./pages/Overview";
-
 const App = () => {
   const nhost = new NhostClient({
     subdomain: process.env.REACT_APP_NHOST_SUBDOMAIN,
@@ -30,6 +29,7 @@ const App = () => {
               <Route index element={<Overview />} />
               <Route path="profile" element={<Profile />} />
             </Route>
+
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>

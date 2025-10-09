@@ -1,18 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useCallback } from "react";
-import { useSignOut } from "@nhost/react";
-
 
 const Sidebar = ({ styles, user, setPopUp }) => {
   const navigate = useNavigate();
-  const { signOut } = useSignOut();
-  
 
   const onLogOutButtonClick = useCallback(() => {
-    signOut();        // ✅ Logs out the user from Nhost
     navigate("/");
-    
-  }, [signOut,navigate]);
+  }, [signOut, navigate]);
 
   const name = user?.metadata?.name ? user?.metadata?.name : user.displayName;
   const email = user.email;
@@ -24,13 +18,6 @@ const Sidebar = ({ styles, user, setPopUp }) => {
   return (
     <div className={styles.sideBarDiv}>
       <Link className={styles.logoA} to="/">
-        <img
-          className={styles.contactMailIcon}
-          alt=""
-          src="../PeekSendLogo.svg"
-          width="100"
-          height="100"
-        />
         <div className={styles.mAILBESDiv}>PeekSend</div>
       </Link>
       <button
