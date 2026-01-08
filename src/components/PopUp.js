@@ -27,6 +27,7 @@ const ADD_EMAIL = gql`
         description: $description
         email: $email
         img_text: $img_text
+        user: $user
         
       }
     ) {
@@ -36,31 +37,52 @@ const ADD_EMAIL = gql`
 `;
 
 const PopUp = ({ setPopUp }) => {
-  //get the user data
   const user = useUserData();
-
   const [email, setEmail] = useState("");
   const [description, setDescription] = useState("");
-  const [name, setName] = useState(user.displayName);
+  const [name, setName] = useState(user?.displayName || "");
   const [imgText, setImgText] = useState("");
 
-  const [addEmail, { data, loading, error }] = useMutation(ADD_EMAIL);
-
+  const [addEmail, { loading, error }] = useMutation(ADD_EMAIL);
   const ref = useRef();
+
+  // Generate pixel URL
+  useEffect(() => {
+    if (!user?.id) return;
+
+    const uniqueId = Date.now(); // unique email tracking ID
+
+    setImgText(
+  `https://mewefazwvknjenezsqmn.functions.eu-central-1.nhost.run/v1/update?img_text=${uniqueId}&user=${user.id}`
+);
+
+  }, [user]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // SAFELY extract email_id=XXXXX
+    const match = imgText.match(/email_id=([^&]+)/);
+    const emailId = match ? match[1] : null;
+
+    if (!emailId) {
+      toast.error("Failed to extract email tracking ID.");
+      return;
+    }
+
     try {
       await addEmail({
         variables: {
-          email: email,
-          description: description,
-          img_text: imgText.split("=")[1],
+          email,
+          description,
+          img_text: emailId,
+          user: user.id, 
+          
           
         },
       });
-      toast.success("Email added successfully");
+
+      toast.success("Email added successfully!");
       setPopUp(false);
       window.location.reload();
     } catch (err) {
@@ -68,49 +90,34 @@ const PopUp = ({ setPopUp }) => {
     }
   };
 
-  useEffect(() => {
-    const time = new Date().getTime();
-    setImgText(
-      `https://kmcsbcogtktanptlgydx.nhost.run/v1/functions/update?text=${time}`
-    );
-  }, []);
-
   return (
     <div className={styles.popup}>
       <div className={styles.popUpDiv}>
         <div className={styles.header}>
-          <Typography variant="h6" component="h4">
-            Enter new email details
-          </Typography>
-
-          <IconButton aria-label="close" onClick={() => setPopUp(false)}>
+          <Typography variant="h6">Enter new email details</Typography>
+          <IconButton onClick={() => setPopUp(false)}>
             <HighlightOffIcon />
           </IconButton>
         </div>
+
         <form className={styles.groupForm} onSubmit={handleSubmit}>
-          <FormControl sx={{ m: 0, width: "100%" }} error={error}>
+          <FormControl sx={{ width: "100%" }} error={error}>
             <TextField
               className={styles.inputOutlinedTextField}
               fullWidth
-              color="primary"
               variant="outlined"
               type="email"
               label="Email"
-              placeholder="Receiver's email"
-              size="medium"
-              margin="none"
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
+
             <TextField
               className={styles.textAreaOutlinedTextField}
-              color="primary"
               variant="outlined"
               multiline
               label="Description"
-              placeholder="Some distinct description"
-              helperText="This text will help to seperate emails."
               required
               fullWidth
               value={description}
@@ -118,37 +125,28 @@ const PopUp = ({ setPopUp }) => {
             />
 
             <TextField
-              color="primary"
               variant="outlined"
               label="Your Name"
-              placeholder="Enter your full name"
-              helperText="An image will be attached with this text."
               required
               fullWidth
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
 
+            {/* PIXEL PREVIEW */}
             <div className={styles.copyBox}>
               <div className={styles.imgDiv} ref={ref}>
-                {name && name.substring(0, 1)}
-                <img
-                  src={imgText}
-                  className={styles.pixelImg}
-                  width={1}
-                  height={1}
-                />
-                {name && name.substring(1, name.length)}
+                {name?.substring(0, 1)}
+                <img src={imgText} className={styles.pixelImg} width={1} height={1} />
+                {name?.substring(1)}
               </div>
               <span className={styles.imgHelperText}>
-                Copy this text and paste it in the email.{" "}
-                <strong>Imp: Don't erase it after pasting.</strong>
+                Copy this text into your email.{" "}
+                <strong>Do NOT delete the tiny pixel.</strong>
               </span>
             </div>
 
-            {error && (
-              <FormHelperText>{`Error occured! ${error.message}`}</FormHelperText>
-            )}
+            {error && <FormHelperText>Error: {error.message}</FormHelperText>}
 
             <LoadingButton
               className={styles.buttonContainedText}

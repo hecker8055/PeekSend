@@ -10,12 +10,14 @@ import Profile from "./pages/Profile";
 import PageNotFound from "./pages/PageNotFound";
 import ProtectedDashboard from "./components/ProtectedDashboard";
 import Overview from "./pages/Overview";
-const App = () => {
-  const nhost = new NhostClient({
-    subdomain: process.env.REACT_APP_NHOST_SUBDOMAIN,
-    region: process.env.REACT_APP_NHOST_REGION,
-  });
 
+// ❗ Move nhost initialization OUTSIDE the component
+const nhost = new NhostClient({
+  subdomain: process.env.REACT_APP_NHOST_SUBDOMAIN,
+  region: process.env.REACT_APP_NHOST_REGION,
+});
+
+const App = () => {
   return (
     <NhostReactProvider nhost={nhost}>
       <NhostApolloProvider nhost={nhost}>

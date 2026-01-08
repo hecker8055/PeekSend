@@ -1,75 +1,55 @@
 import { NhostClient } from "@nhost/nhost-js";
 
-const accessToken = process.env.NHOST_ADMIN_SECRET;
-const backendUrl = process.env.NHOST_BACKEND_URL;
-
 const nhost = new NhostClient({
-  backendUrl: backendUrl,
+  backendUrl: process.env.NHOST_BACKEND_URL,
 });
 
-nhost.graphql.setAccessToken(accessToken);
+nhost.graphql.setAccessToken(process.env.NHOST_ADMIN_SECRET);
 
 export default async (req, res) => {
-  // get the data from the request
-  const imgText = req.query.text;
-  console.log("imgText", imgText);
+  const img_text = req.query.img_text;
+  const user = req.query.user;
 
-  if (!imgText) {
-    return res.status(500).json({ error: "No image token provided" });
-  }
+  console.log("Pixel hit:", { img_text, user });
 
-  // make a get query to get email id using imgText
-  const GET_EMAIL_ID = `
-  query getId($text: String!) {
-    emails(where: {img_text: {_eq: $text}}) {
-      id
-      seen
-    }
-  }`;
-
-  // update query with the email id
-  const UPDATE_QUERY = `
-    mutation UpdateEmail($id: Int!, $date: timestamptz!) {
-      update_emails(where: {id: {_eq: $id}}, _set: {seen: true, seen_at: $date}) {
-        affected_rows
+  if (img_text && user) {
+    const UPDATE_EMAIL = `
+      mutation UpdateEmail($img_text: String!, $user: uuid!, $date: timestamptz!) {
+        update_emails(
+          where: {
+            img_text: { _eq: $img_text },
+            user: { _eq: $user }
+          },
+          _set: { seen: true, seen_at: $date }
+        ) {
+          affected_rows
+        }
       }
-    }`;
+    `;
 
-  try {
-    const { data, error } = await nhost.graphql.request(GET_EMAIL_ID, {
-      text: imgText,
-    });
-
-    if (error) {
-      return res.status(500).json({ error: error.message });
-    }
-
-    if (!data) {
-      return res.status(500).json({ error: "No email found" });
-    }
-
-    // extract the email id from the response
-    const emailId = data.emails[0].id;
-    const seen = data.emails[0].seen;
-
-    if (seen) {
-      return res.status(500).json({ error: "Kaam hogaya vai" });
-    }
-
-    //update the seen column in emails table
-    const { data: updatedData, error: updateError } =
-      await nhost.graphql.request(UPDATE_QUERY, {
-        id: emailId,
-        date: new Date(),
+    try {
+      const result = await nhost.graphql.request(UPDATE_EMAIL, {
+        img_text,
+        user,
+        date: new Date().toISOString(),
       });
 
-    if (updateError) {
-      return res.status(500).json({ error: error.message });
+      console.log("Update Result:", result);
+    } catch (error) {
+      console.error("GraphQL Error:", error);
     }
-
-    res.status(404).send({ error: "Bye bye" });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ error });
+  } else {
+    console.log("Missing parameters:", req.query);
   }
+
+  // return transparent pixel
+  const gif = Buffer.from(
+    "R0lGODlhAQABAPAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==",
+    "base64"
+  );
+
+  res.setHeader("Content-Type", "image/gif");
+  res.setHeader("Content-Length", gif.length);
+
+  return res.status(200).send(gif);
 };

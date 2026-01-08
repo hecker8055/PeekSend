@@ -1,0 +1,7 @@
+{
+  "name": "functions",
+  "type": "module",
+  "dependencies": {
+    "@nhost/nhost-js": "^2.4.0"
+  }
+}

@@ -1,5 +1,5 @@
 import { Delete } from "@mui/icons-material";
-import { IconButton, CircularProgress } from "@mui/material";
+import { IconButton, CircularProgress, Button } from "@mui/material";
 import { gql, useQuery, useMutation } from "@apollo/client";
 import { useUserData } from "@nhost/react";
 import toast from "react-hot-toast";
@@ -8,11 +8,7 @@ import "../styles/EmailsTable.css";
 // QUERIES AND MUTATIONS
 const GET_EMAILS = gql`
   query getEmails($user: uuid!) {
-<<<<<<< HEAD
     emails(order_by: { created_at: desc }, where: { user: { _eq: $user } }) {
-=======
-    emails(where: { user: { _eq: $user } }) {
->>>>>>> 722c7ea7cbf269416069ef846f3efacb2540dae5
       created_at
       description
       email
@@ -35,19 +31,15 @@ const DELETE_EMAIL = gql`
 const MARK_AS_SEEN = gql`
   mutation markEmailAsSeen($id: uuid!, $seenAt: timestamptz!) {
     update_emails(
-      where: { id: { _eq: $id } }
+      where: { id: { _eq: $id }, seen: { _eq: false } }
       _set: { seen: true, seen_at: $seenAt }
     ) {
-      returning {
-        id
-        seen
-        seen_at
-      }
+      affected_rows
     }
   }
 `;
 
-const EmailsTable = () => { // No longer needs the {styles} prop
+const EmailsTable = () => {
   const user = useUserData();
 
   const { loading, error, data } = useQuery(GET_EMAILS, {
@@ -55,32 +47,19 @@ const EmailsTable = () => { // No longer needs the {styles} prop
     skip: !user?.id,
   });
 
-<<<<<<< HEAD
-  const [deleteEmailMutation, { loading: deleting }] =
-    useMutation(DELETE_EMAIL);
-
-  useEffect(() => {
-    if (data && data.emails) {
-      setEmails(data.emails);
-    }
-  }, [data]);
-
-  const deleteEmail = async (id) => {
-    const confirmation = window.confirm(
-      "Are you sure you want to delete this?"
-    );
-    if (!confirmation) return;
-
-=======
   const [deleteEmailMutation, { loading: deleting }] = useMutation(DELETE_EMAIL, {
-      refetchQueries: [{ query: GET_EMAILS, variables: { user: user?.id } }],
+    refetchQueries: [{ query: GET_EMAILS, variables: { user: user?.id } }],
   });
-  
-  const [markAsSeen] = useMutation(MARK_AS_SEEN);
 
+  const [markAsSeenMutation] = useMutation(MARK_AS_SEEN, {
+  refetchQueries: [{ query: GET_EMAILS, variables: { user: user?.id } }],
+  awaitRefetchQueries: true,
+});
+
+
+  // Delete Email Function
   const deleteEmail = async (id) => {
     if (!window.confirm("Are you sure you want to delete this?")) return;
->>>>>>> 722c7ea7cbf269416069ef846f3efacb2540dae5
     try {
       await deleteEmailMutation({ variables: { id } });
       toast.success("Email deleted successfully");
@@ -90,19 +69,26 @@ const EmailsTable = () => { // No longer needs the {styles} prop
     }
   };
 
-  const handleEmailClick = async (email) => {
-    if (email.seen) return;
+  // Mark Email as Seen Function
+  const markAsSeen = async (id) => {
     const now = new Date().toISOString();
     try {
-      await markAsSeen({ variables: { id: email.id, seenAt: now } });
+      const { data } = await markAsSeenMutation({ variables: { id, seenAt: now } });
+
+      if (data.update_emails.affected_rows === 0) {
+        toast.error("Email is already marked as seen or does not exist.");
+      } else {
+        toast.success("Email successfully marked as seen!");
+      }
     } catch (err) {
       toast.error("Failed to mark email as seen");
       console.error(err);
     }
   };
-  
+
   const emails = data?.emails || [];
 
+  // Handle Loading State
   if (loading) {
     return (
       <div className="loader">
@@ -111,17 +97,13 @@ const EmailsTable = () => { // No longer needs the {styles} prop
     );
   }
 
+  // Handle Error State
   if (error) {
     console.error(error);
-<<<<<<< HEAD
-    return (
-      <div className={styles.loader}>Error loading emails: {error.message}</div>
-    );
-=======
     return <div className="loader">Error loading emails: {error.message}</div>;
->>>>>>> 722c7ea7cbf269416069ef846f3efacb2540dae5
   }
 
+  // Handle Empty State
   if (emails.length === 0) {
     return <div className="loader">No emails found</div>;
   }
@@ -138,36 +120,42 @@ const EmailsTable = () => { // No longer needs the {styles} prop
         <div className="tableHeaderCell">Actions</div>
       </div>
 
-      {/* Table Body */}
+      {/* Table Rows */}
       {emails.map((email) => (
-        <div
-          className="tableRow"
-          key={email.id}
-          onClick={() => handleEmailClick(email)}
-          style={{ cursor: email.seen ? 'default' : 'pointer' }}
-        >
+        <div className="tableRow" key={email.id}>
           <div className="tableCell">{email.email}</div>
-          
+
           <div className="tableCell">
             <span className={email.seen ? "seenBadge" : "unseenBadge"}>
               {email.seen ? "Seen" : "Unseen"}
             </span>
+            {!email.seen && (
+              <Button
+                size="small"
+                variant="contained"
+                color="primary"
+                onClick={() => markAsSeen(email.id)}
+                style={{ marginLeft: "10px" }}
+              >
+                Mark as Seen
+              </Button>
+            )}
           </div>
 
           <div className="tableCell">{email.description}</div>
-          
+
           <div className="tableCell">
             {new Date(email.created_at).toLocaleString()}
           </div>
-          
+
           <div className="tableCell">
             {email.seen ? new Date(email.seen_at).toLocaleString() : "Not seen"}
           </div>
-          
+
           <div className="tableCell">
             <IconButton
               onClick={(e) => {
-                e.stopPropagation();
+                e.stopPropagation(); // Prevent row click logic
                 deleteEmail(email.id);
               }}
               disabled={deleting}
@@ -180,6 +168,12 @@ const EmailsTable = () => { // No longer needs the {styles} prop
       ))}
     </div>
   );
+};
+
+export {
+  GET_EMAILS,
+  DELETE_EMAIL,
+  MARK_AS_SEEN,
 };
 
 export default EmailsTable;
