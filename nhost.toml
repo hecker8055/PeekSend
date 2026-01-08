@@ -1,2 +1,2 @@
 [functions]
-path = "functions"
+dir = "./functions"
