@@ -1,2 +1,5 @@
+version = "1"
+
 [functions]
 dir = "./functions"
+node_version = "18"
