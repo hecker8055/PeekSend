@@ -53,7 +53,7 @@ const PopUp = ({ setPopUp }) => {
     const uniqueId = Date.now(); // unique email tracking ID
 
     setImgText(
-  `https://mewefazwvknjenezsqmn.functions.eu-central-1.nhost.run/v1/update?img_text=${uniqueId}&user=${user.id}`
+  `https://mewefazwvknjenezsqmn.functions.eu-central-1.nhost.run/v1/index?img_text=${uniqueId}&user=${user.id}`
 );
 
   }, [user]);
