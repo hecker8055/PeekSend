@@ -3,8 +3,8 @@ import { NhostClient } from "@nhost/nhost-js";
 export default async (req, res) => {
   console.log("Pixel hit:", req.query);
 
-  const imgText = req.query.email_id;
-  const userId = req.query.user_id;
+  const imgText = req.query.img_text;
+const userId = req.query.user;
 
   const nhost = new NhostClient({
     backendUrl: process.env.NHOST_BACKEND_URL,
