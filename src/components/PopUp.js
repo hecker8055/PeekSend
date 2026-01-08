@@ -48,15 +48,15 @@ const PopUp = ({ setPopUp }) => {
 
   // Generate pixel URL
   useEffect(() => {
-    if (!user?.id) return;
+  if (!user?.id) return;
 
-    const uniqueId = Date.now(); // unique email tracking ID
+  const uniqueId = Date.now();
 
-    setImgText(
-  `https://mewefazwvknjenezsqmn.functions.eu-central-1.nhost.run/v1/index?img_text=${uniqueId}&user=${user.id}`
-);
+  setImgText(
+    `https://mewefazwvknjenezsqmn.functions.eu-central-1.nhost.run/v1/index?img_text=${uniqueId}&user=${user.id}`
+  );
+}, [user]);
 
-  }, [user]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
